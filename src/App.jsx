@@ -15,7 +15,6 @@ import Car from "./pages/Car/Car";
 import FAQ from "./pages/FAQ/FAQ";
 import PublicLayout from "./Layouts/PublicLayout/PublicLayout";
 
-
 function App() {
   return (
     <Router>
