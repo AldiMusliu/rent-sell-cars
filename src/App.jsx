@@ -16,6 +16,7 @@ import FAQ from "./pages/FAQ/FAQ";
 import PublicLayout from "./Layouts/PublicLayout/PublicLayout";
 
 function App() {
+  
   return (
     <Router>
       <Routes>
