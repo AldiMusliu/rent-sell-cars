@@ -1,7 +1,8 @@
-const DashboardUser=()=>{
-    return(
+const DashboardUser = () => {
+    return (
         <div>
             <h2>DashboardUser</h2>
+
         </div>
     )
 }
