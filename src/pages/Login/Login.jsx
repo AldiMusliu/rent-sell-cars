@@ -1,7 +1,8 @@
 import { useState } from 'react'
-import NoteAlert from '../../components/NoteAlert/NoteAlert'
 import LoginForm from '../../components/Login/Login'
 import { api, endpoints} from '../../lib/api/'
+import ErrorAlert from '../../components/ErrorAlert/ErrorAlert'
+
 
 
 const Login = () => {
@@ -23,7 +24,7 @@ const Login = () => {
     <div className="login">
       <div className="loginComponent">
         <h1>Login</h1>
-        <NoteAlert variant={'danger'}>{errorMessage}</NoteAlert>
+        <ErrorAlert variant={'danger'}>{errorMessage}</ErrorAlert>
         <LoginForm setMessage={setErrorMessage} submit={submit} /> 
       </div>
     </div>
