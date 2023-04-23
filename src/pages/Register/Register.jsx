@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import NoteAlert from '../../components/NoteAlert/NoteAlert'
 import RegisterForm from '../../components/Register/Register'
 import { api, endpoints} from '../../lib/api/'
+import ErrorAlert from '../../components/ErrorAlert/ErrorAlert'
 
 
 const Register = () => {
@@ -27,7 +27,7 @@ const Register = () => {
       <div className={"register"}>
         <div className={"registerComponent"}>
           <h1>Register</h1>
-          <NoteAlert variant={variant}>{message}</NoteAlert>
+          <ErrorAlert variant={variant}>{message}</ErrorAlert>
           {variant !== 'success' && <RegisterForm setMessage={setMessage} submit={submitRegister} />}
         </div>
       </div>

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Alert } from 'react-bootstrap'
 
-const NoteAlert = ({variant, children}) => {
+const ErrorAlert = ({variant, children}) => {
   return (
     <>
       { children && <Alert variant={variant}>{children}</Alert>}
@@ -9,4 +9,4 @@ const NoteAlert = ({variant, children}) => {
   )
 }
 
-export default NoteAlert
+export default ErrorAlert
