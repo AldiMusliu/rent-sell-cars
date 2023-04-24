@@ -6,11 +6,11 @@ function Page404() {
     <div className="page404">
       <h1 className="page404-title">4<span>0</span>4</h1>
       <p className="page404-subtitle">
-        <strong>Page <span>not found</span> ! </strong>
+        Page <strong><span>not found!</span> </strong>
        Looks like you got lost.
       </p>
       <NavLink to="/" className="page404-link">
-        HOME
+        GO HOME
       </NavLink>
     </div>
   );

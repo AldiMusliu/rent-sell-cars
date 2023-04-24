@@ -36,7 +36,7 @@ const VerifyAccount = () => {
         {success !== undefined ? (
           success === true ? (
             <ErrorAlert variant={'success'} >
-              <div className="aler">
+              <div className="alert">
                 Account is verified! <br/> <Link to="/login">Please go to login</Link>
               </div>
             </ErrorAlert>
