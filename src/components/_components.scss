@@ -24,7 +24,11 @@
         width: 100%;
         background-color: #d65A31;
         border: none;
+        &:active{
+            background-color: darken(#d65a31, 10%);
+        }
     }
+    
 }
 
 .link {
