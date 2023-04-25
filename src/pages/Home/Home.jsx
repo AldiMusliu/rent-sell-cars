@@ -1,11 +1,15 @@
-import * as React from "react";
-import FAQ from "../FAQ/FAQ";
+import  Hero from "./components/Hero";
+import Quote from "./components/Quote";
+import Features from "./components/Features";
+import GetRewards  from "./components/GetRewards";
 
-const Home = () => {
-    return(
-        <div>
-            <h2>Home Page ijijij</h2>
-        </div>
-    )
+export default function Home() {
+  return (
+    <>
+      <Hero />
+      <Quote />
+      <Features />
+      <GetRewards />
+    </>
+  );
 }
-export default Home;

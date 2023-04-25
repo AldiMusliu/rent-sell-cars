@@ -18,14 +18,7 @@ import ResetPassword from "./pages/ResetPassword/ResetPassword";
 import VerifyAccount from "./pages/VerifyAccount/VerifyAccount";
 import ForgotPassword from "./pages/ForgotPassword/ForgotPassword";
 
-
-
-
-
-
-
-function App() {
-  
+function App() {  
   return (
     <Router>
       <Routes>
