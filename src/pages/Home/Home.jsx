@@ -123,6 +123,15 @@ const Home = () => {
         </p>
         <Icons.AppStore className="icons" />
       </div>
+      <div className="hotDeals">
+        <h3 className="hotDeals-title">Hot deals right now</h3>
+        <div className="hotDeals-cars container">
+        <CarCard/>
+        <CarCard/>
+        <CarCard/>
+        <CarCard/>
+        </div>
+      </div>
       <FAQ />
     </div>
   );

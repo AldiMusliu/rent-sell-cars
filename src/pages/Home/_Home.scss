@@ -117,4 +117,18 @@
     }
   }
   
+  .hotDeals {
+    margin: 100px 0 80px 0;
+    &-title{
+      font-size: 36px;
+      margin: 0px 0px 40px 0px;
+      text-align: center;
+    }
+    &-cars {
+      display: grid;
+      gap: 24px;
+      grid-template-columns: repeat(4, 1fr);
+  
+    }
+  }
   
