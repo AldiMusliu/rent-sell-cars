@@ -15,5 +15,48 @@
 @import './VerifyAccount/VerifyAccount';
 
 
-
+.container {
+    width: calc(100vw - 50px);
+    margin: 0 auto;
+  }
+  
+  .accordion {
+    &-item {
+      border: none;
+      border-top: 1px solid #8c93a2;
+      border-bottom: 1px solid #8c93a2;
+      box-shadow: none;
+    }
+  
+    &-button {
+      padding: 30px 15px;
+      background-color: black;
+      color: white;
+      font-size: 20px;
+      &:focus {
+        box-shadow: none;
+      }
+  
+      &:not(.collapsed) {
+        color: white;
+        background-color: black;
+      }
+    }
+  
+    &-body {
+      text-align: start;
+      font-size: 18px;
+      line-height: 1.5;
+      color: #8c93a2;
+      padding: 25px 15px;
+      background-color: black;
+    }
+  }
+  .filter {
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    white-space: nowrap;
+  }
 
