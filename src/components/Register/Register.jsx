@@ -49,7 +49,6 @@ const RegisterForm = ({ submit, setMessage }) => {
   }
 
   return (
-    <Container>
       <Row>
         <Col>
           <Form onSubmit={handleSubmit}>
@@ -134,7 +133,6 @@ const RegisterForm = ({ submit, setMessage }) => {
           </div>
         </Col>
       </Row>
-    </Container>
   )
 }
 

@@ -23,15 +23,13 @@ const Register = () => {
   }
 
   return (
-    <div className={"registerVerifyComponent"}>
-      <div className={"register"}>
-        <div className={"registerComponent"}>
+      <div className="register">
+        <div className="registerComponent">
           <h1>Register</h1>
           <ErrorAlert variant={variant}>{message}</ErrorAlert>
           {variant !== 'success' && <RegisterForm setMessage={setMessage} submit={submitRegister} />}
         </div>
       </div>
-    </div>
   )
 }
 

@@ -1,9 +1,8 @@
 const DashboardUser = () => {
-    return (
-        <div>
-            <h2>DashboardUser</h2>
-
-        </div>
-    )
-}
+  return (
+    <div >
+      <h4>Dashboard User</h4>
+    </div>
+  );
+};
 export default DashboardUser;

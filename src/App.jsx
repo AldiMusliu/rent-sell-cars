@@ -5,8 +5,7 @@ import DashboardLayout from "./Layouts/DashboardLayout/DashboardLayout";
 import Page404 from "./pages/Page404/Page404";
 import DashboardHome from "./pages/DashboardHome/DashboardHome";
 import DashboardCars from "./pages/DashboardCars/DashboardCars";
-import DashboardCar from "./pages/DashboardCar/DashboardCar"; 
-import Layout from "./components/LayoutDashboard/LayoutDashboard"; /*prov */ 
+import DashboardCar from "./pages/DashboardCar/DashboardCar";
 import DashboardUsers from "./pages/DashboardUsers/DashboardUsers";
 import DashboardUser from "./pages/DashboardUser/DashboardUser";
 import Cars from "./pages/Cars/Cars";
@@ -18,6 +17,11 @@ import Register from "./pages/Register/Register";
 import ResetPassword from "./pages/ResetPassword/ResetPassword";
 import VerifyAccount from "./pages/VerifyAccount/VerifyAccount";
 import ForgotPassword from "./pages/ForgotPassword/ForgotPassword";
+
+
+
+
+
 
 
 function App() {

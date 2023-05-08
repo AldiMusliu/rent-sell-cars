@@ -4,10 +4,12 @@ import Header from "../../partials/Header/Header";
 
 const PublicLayout = () => {
   return (
-    <div>
-      <Header/>
-      <Outlet />
-      <Footer/>
+    <div className="publicLayout">
+      <Header />
+      <div className="publicLayout-outlet">
+        <Outlet />
+      </div>
+      <Footer />
     </div>
   );
 };

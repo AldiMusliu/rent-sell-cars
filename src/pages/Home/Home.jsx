@@ -2,6 +2,7 @@ import * as React from "react";
 import FAQ from "../FAQ/FAQ";
 import Hero from "../../components/HeroSection/HeroSection";
 import { Icons } from "../../components/Icons/Icons";
+import CarCard from "../../components/CarCard/CarCard";
 
 
 const Home = () => {
