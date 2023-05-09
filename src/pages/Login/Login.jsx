@@ -21,7 +21,7 @@ const Login = () => {
   }
 
   return (
-    <div className="login">
+    <div className="login ">
       <div className="loginComponent">
         <h1>Login</h1>
         <ErrorAlert variant={'danger'}>{errorMessage}</ErrorAlert>
