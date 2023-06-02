@@ -1,17 +1,20 @@
 import Form from "react-bootstrap/Form";
 import TabelUserListItem from "../../components/TabelUserListItem";
-import Pagination from "react-bootstrap/Pagination";
+import React, { useState } from "react";
+import { api, endpoints } from "../../lib/api/";
 
 const DashboardUsers = () => {
-  let active = 2;
-  let items = [];
-  for (let number = 1; number <= 5; number++) {
-    items.push(
-      <Pagination.Item key={number} active={number === active}>
-        {number}
-      </Pagination.Item>
-    );
-  }
+  const [rerender, setRerender] = useState(false);
+  const [users, setUsers] = React.useState();
+  const getUsers = async () => {
+    const result = await api.call(endpoints.getUsers);
+    if (result.success) {
+      setUsers(result.data);
+    }
+  };
+  React.useEffect(() => {
+    getUsers();
+  }, [rerender]);
   return (
     <div className="dashboardUsers">
       <div className="filter">
@@ -26,21 +29,22 @@ const DashboardUsers = () => {
       <div className="tableContent">
         <table>
           <tr>
-            <th className="firstItem">Number</th>
-            <th>Full Name</th>
+            <th className="firstItem">Full Name</th>
             <th>Email</th>
             <th>Status</th>
             <th className="lastItem">Actions</th>
           </tr>
-          <TabelUserListItem />
-          <TabelUserListItem />
-          <TabelUserListItem />
-          <TabelUserListItem />
-          <TabelUserListItem />
-          <TabelUserListItem />
+          {users?.map((user) => {
+            return (
+              <TabelUserListItem
+                key={user._id}
+                user={user}
+                setRerender={setRerender}
+              />
+            );
+          })}
         </table>
       </div>
-      <Pagination>{items}</Pagination>
     </div>
   );
 };

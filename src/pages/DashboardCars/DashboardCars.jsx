@@ -1,18 +1,21 @@
 import Form from "react-bootstrap/Form";
 import CardCarListItem from "../../components/CardCarListItem";
-import Pagination from "react-bootstrap/Pagination";
-import carImg from "../../assets/images/porsche-911.jpg"
+import React from "react";
+import carImg from "../../assets/images/porsche-911.jpg";
+import { api, endpoints } from "../../lib/api/";
 
 const DashboardCars = () => {
-  let active = 2;
-  let items = [];
-  for (let number = 1; number <= 5; number++) {
-    items.push(
-      <Pagination.Item key={number} active={number === active}>
-        {number}
-      </Pagination.Item>
-    );
-  }
+  const [rerender, setRerender] = React.useState(false);
+  const [cars, setCars] = React.useState();
+  const getCars = async () => {
+    const result = await api.call(endpoints.getCars);
+    if (result.success) {
+      setCars(result.data);
+    }
+  };
+  React.useEffect(() => {
+    getCars();
+  }, [rerender]);
   return (
     <div className="dashboardCars">
       <div className="filter">
@@ -24,69 +27,24 @@ const DashboardCars = () => {
           <option value="3">For Rent</option>
         </Form.Select>
       </div>
-     <div className="dashboardCars-grid">
-     <div className="carCard">
-      <img src={carImg} alt="porsche"/>
-      <div className="carCard-content">
-        <h3>Porsche</h3>
-        <p>911</p>
-        <p>White</p>
-        <p>2018</p>
-        <p>Rent Price 30$/per day</p>
-        <p>Sell Price 70k$</p>
-        <CardCarListItem/>
+      <div className="dashboardCars-grid">
+        {cars?.map((car) => {
+          return (
+            <div className="carCard" key={car._id}>
+              <img src={carImg} alt="porsche" />
+              <div className="carCard-content">
+                <h3>{car?.name}</h3>
+                <p>911</p>
+                <p>White</p>
+                <p>2018</p>
+                <p>Rent Price 30$/per day</p>
+                <p>Sell Price 70k$</p>
+                <CardCarListItem id={car._id} setRerender={setRerender}/>
+              </div>
+            </div>
+          );
+        })}
       </div>
-    </div>
-    <div className="carCard">
-      <img src={carImg} alt="porsche"/>
-      <div className="carCard-content">
-        <h3>Porsche</h3>
-        <p>911</p>
-        <p>White</p>
-        <p>2018</p>
-        <p>Rent Price 30$/per day</p>
-        <p>Sell Price 70k$</p>
-        <CardCarListItem/>
-      </div>
-    </div>
-    <div className="carCard">
-      <img src={carImg} alt="porsche"/>
-      <div className="carCard-content">
-        <h3>Porsche</h3>
-        <p>911</p>
-        <p>White</p>
-        <p>2018</p>
-        <p>Rent Price 30$/per day</p>
-        <p>Sell Price 70k$</p>
-        <CardCarListItem/>
-      </div>
-    </div>
-    <div className="carCard">
-      <img src={carImg} alt="porsche"/>
-      <div className="carCard-content">
-        <h3>Porsche</h3>
-        <p>911</p>
-        <p>White</p>
-        <p>2018</p>
-        <p>Rent Price 30$/per day</p>
-        <p>Sell Price 70k$</p>
-        <CardCarListItem/>
-      </div>
-    </div>
-    <div className="carCard">
-      <img src={carImg} alt="porsche"/>
-      <div className="carCard-content">
-        <h3>Porsche</h3>
-        <p>911</p>
-        <p>White</p>
-        <p>2018</p>
-        <p>Rent Price 30$/per day</p>
-        <p>Sell Price 70k$</p>
-        <CardCarListItem/>
-      </div>
-    </div>
-     </div>
-      <Pagination>{items}</Pagination>
     </div>
   );
 };

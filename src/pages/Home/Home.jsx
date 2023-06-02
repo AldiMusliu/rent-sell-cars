@@ -3,9 +3,20 @@ import FAQ from "../FAQ/FAQ";
 import Hero from "../../components/HeroSection/HeroSection";
 import { Icons } from "../../components/Icons/Icons";
 import CarCard from "../../components/CarCard/CarCard";
+import { api, endpoints } from "../../lib/api/";
 
 
 const Home = () => {
+  const [cars, setCars] = React.useState();
+  const getCars = async () => {
+    const result = await api.call(endpoints.getCars);
+    if (result.success) {
+      setCars(result.data);
+    }
+  };
+  React.useEffect(() => {
+    getCars();
+  }, []);
   return (
     <div className="home">
       <Hero />
@@ -127,10 +138,9 @@ const Home = () => {
       <div className="hotDeals">
         <h3 className="hotDeals-title">Hot deals right now</h3>
         <div className="hotDeals-cars container">
-        <CarCard/>
-        <CarCard/>
-        <CarCard/>
-        <CarCard/>
+        {cars?.slice(0, 4).map((car) => {
+          return <CarCard car={car} key={car._id}/>;
+        })}
         </div>
       </div>
       <FAQ />

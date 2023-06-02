@@ -18,36 +18,35 @@ import ResetPassword from "./pages/ResetPassword/ResetPassword";
 import VerifyAccount from "./pages/VerifyAccount/VerifyAccount";
 import ForgotPassword from "./pages/ForgotPassword/ForgotPassword";
 
-
-
-
-
-
-
 function App() {
-  
   return (
     <Router>
       <Routes>
         <Route path="/" element={<MainLayout />}>
-          <Route path="login" element={<Login />} />
-          <Route path="register" element={<Register />} />
-          <Route path="reset-password" element={<ResetPassword/>} />
-          <Route path="forgot-password" element={<ForgotPassword />} />
-          <Route path="verify" element={<VerifyAccount />} />
+          {!localStorage.getItem("token") && (
+            <>
+              <Route path="login" element={<Login />} />
+              <Route path="register" element={<Register />} />
+              <Route path="reset-password" element={<ResetPassword />} />
+              <Route path="forgot-password" element={<ForgotPassword />} />
+              <Route path="verify" element={<VerifyAccount />} />
+            </>
+          )}
           <Route path="" element={<PublicLayout />}>
             <Route index element={<Home />} />
             <Route path="cars" element={<Cars />} />
             <Route path="cars/:carId" element={<Car />} />
             <Route path="faq" element={<FAQ />} />
           </Route>
-          <Route path="dashboard" element={<DashboardLayout />}>
-            <Route index element={<DashboardHome />} />
-            <Route path="cars" element={<DashboardCars />} />
-            <Route path="cars/:carId" element={<DashboardCar />} />
-            <Route path="users" element={<DashboardUsers />} />
-            <Route path="users/:userId" element={<DashboardUser />} />
-          </Route>
+          {localStorage.getItem("token") && (
+            <Route path="dashboard" element={<DashboardLayout />}>
+              <Route index element={<DashboardHome />} />
+              <Route path="cars" element={<DashboardCars />} />
+              <Route path="cars/:carId" element={<DashboardCar />} />
+              <Route path="users" element={<DashboardUsers />} />
+              <Route path="users/:userId" element={<DashboardUser />} />
+            </Route>
+          )}
           <Route path="*" element={<Page404 />} />
         </Route>
       </Routes>

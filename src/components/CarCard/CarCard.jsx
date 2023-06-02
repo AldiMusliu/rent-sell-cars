@@ -3,14 +3,13 @@ import { useNavigate } from "react-router-dom";
 import carImg from "../../assets/images/porsche-911.jpg";
 
 
-const CarCard = () => {
+const CarCard = ({car}) => {
   const navigate = useNavigate();
-  const id = '1';
   return (
-    <div className="carCard" onClick={() => navigate(`/cars/${id}`)}>
+    <div className="carCard" onClick={() => navigate(`/cars/${car._id}`)}>
       <img src={carImg} alt="porsche" />
       <div className="carCard-content">
-        <h3>Porsche</h3>
+        <h3>{car?.name}</h3>
         <p>911</p>
         <p>White</p>
         <p>2018</p>

@@ -1,8 +1,19 @@
 import * as React from "react";
 import CarCard from "../../components/CarCard/CarCard";
 import Form from "react-bootstrap/Form";
+import { api, endpoints } from "../../lib/api/";
 
 const Cars = () => {
+  const [cars, setCars] = React.useState();
+  const getCars = async () => {
+    const result = await api.call(endpoints.getCars);
+    if (result.success) {
+      setCars(result.data);
+    }
+  };
+  React.useEffect(() => {
+    getCars();
+  }, []);
   return (
     <div className="cars container">
       <div className="filter">
@@ -16,14 +27,9 @@ const Cars = () => {
         </Form.Select>
       </div>
       <div className="cars-content">
-        <CarCard/>
-        <CarCard/>
-        <CarCard/>
-        <CarCard/>
-        <CarCard/>
-        <CarCard/>
-        <CarCard/>
-        <CarCard/>
+        {cars?.map((car) => {
+          return <CarCard car={car} key={car._id}/>;
+        })}
       </div>
     </div>
   );
