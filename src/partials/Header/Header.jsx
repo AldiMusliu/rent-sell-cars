@@ -25,7 +25,7 @@ const Header = () => {
         </div>
         {token ? (
           <div>
-            <button onClick={handleLogout}>Logout</button>
+            <button onClick={handleLogout} className="headerContent-register">Logout</button>
           </div>
         ) : (
           <div className="loginRegister">

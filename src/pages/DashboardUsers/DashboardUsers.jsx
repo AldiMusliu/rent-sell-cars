@@ -19,19 +19,12 @@ const DashboardUsers = () => {
     <div className="dashboardUsers">
       <div className="filter">
         <h3>Users</h3>
-        <Form.Select aria-label="Default select example" className="select">
-          <option>Filter by</option>
-          <option value="1">Price</option>
-          <option value="3">For Sale</option>
-          <option value="3">For Rent</option>
-        </Form.Select>
       </div>
       <div className="tableContent">
         <table>
           <tr>
             <th className="firstItem">Full Name</th>
             <th>Email</th>
-            <th>Status</th>
             <th className="lastItem">Actions</th>
           </tr>
           {users?.map((user) => {

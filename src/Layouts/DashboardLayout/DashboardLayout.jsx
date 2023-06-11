@@ -1,13 +1,13 @@
-import { Outlet } from "react-router-dom";
-import React, { useState } from "react";
+import { Outlet, useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 import DashboardNavbar from "../../components/DashboardNavbar/DashboardNavbar";
 
 const DashboardLayout = () => {
+  const navigate=useNavigate()
   const [navbarShow, setNavbarShow] = useState(true);
   const handleShowNavbar = () => {
     setNavbarShow(true);
   };
-
   return (
     <div className="dashboardLayout">
       <div

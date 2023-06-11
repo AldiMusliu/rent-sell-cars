@@ -19,14 +19,34 @@ const Car = () => {
       <h4 className="car-title">{car?.name}</h4>
       <div className="car-content">
         <div className="car-content-details">
-          <p>{car?.model}</p>
-          <p>{car?.priceRent}</p>
-          <p>{car?.priceSell}</p>
-          <p>{car?.available}</p>
-          <p>{car?.description}</p>
-          <p>{car?.seats}</p>
+        <h5>{car?.description}</h5>
+          <p>
+            <span>Model: </span>
+            {car?.model}
+          </p>
+          <p>
+            <span>Price For Rent: </span>
+            {car?.priceRent}
+          </p>
+          <p>
+            <span>Price For Sell: </span>
+            {car?.priceSell}
+          </p>
+          <p>
+            <span>Is Available: </span>
+            {car?.available}
+          </p>
+
+          <p>
+            <span>Seats: </span>
+            {car?.seats}
+          </p>
         </div>
         <img src={car?.images} alt="" className="car-content-photo" />
+      </div>
+      <div className="car-buttons">
+        <button>Book Now</button>
+        <button>Buy Now</button>
       </div>
     </div>
   );

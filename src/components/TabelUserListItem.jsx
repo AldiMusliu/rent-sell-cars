@@ -29,7 +29,6 @@ const TabelUserListItem = ({
       <tr>
         <td className="firstItem">{firstName}</td>
         <td>{email}</td>
-        <td>Has Rent</td>
         <td className="lastItem">
           <span className="icon" onClick={() => navigate(`${userId}`)}>
             {<Icons.Edit />}

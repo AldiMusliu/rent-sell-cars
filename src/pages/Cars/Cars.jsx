@@ -17,14 +17,7 @@ const Cars = () => {
   return (
     <div className="cars container">
       <div className="filter">
-        <h3>Find your cars</h3>
-        <Form.Select aria-label="Default select example" className="select">
-          <option>Filter by</option>
-          <option value="1">Price</option>
-          <option value="2">Name</option>
-          <option value="3">For Sale</option>
-          <option value="3">For Rent</option>
-        </Form.Select>
+        <h3>List of cars</h3>
       </div>
       <div className="cars-content">
         {cars?.map((car) => {

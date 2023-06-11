@@ -1,10 +1,11 @@
-import Form from "react-bootstrap/Form";
 import CardCarListItem from "../../components/CardCarListItem";
 import React from "react";
-import carImg from "../../assets/images/porsche-911.jpg";
 import { api, endpoints } from "../../lib/api/";
+import { Button } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 const DashboardCars = () => {
+  const navigate = useNavigate();
   const [rerender, setRerender] = React.useState(false);
   const [cars, setCars] = React.useState();
   const getCars = async () => {
@@ -20,26 +21,44 @@ const DashboardCars = () => {
     <div className="dashboardCars">
       <div className="filter">
         <h3>Cars</h3>
-        <Form.Select aria-label="Default select example" className="select">
-          <option>Filter by</option>
-          <option value="1">Price</option>
-          <option value="3">For Sale</option>
-          <option value="3">For Rent</option>
-        </Form.Select>
+        <Button onClick={() => navigate("add")}>Add New Car</Button>
       </div>
       <div className="dashboardCars-grid">
         {cars?.map((car) => {
           return (
             <div className="carCard" key={car._id}>
-              <img src={carImg} alt="porsche" />
+              <img src={car.images} alt="porsche" />
               <div className="carCard-content">
-                <h3>{car?.name}</h3>
-                <p>911</p>
-                <p>White</p>
-                <p>2018</p>
-                <p>Rent Price 30$/per day</p>
-                <p>Sell Price 70k$</p>
-                <CardCarListItem id={car._id} setRerender={setRerender}/>
+                <p className="info">
+                  <span>Name: </span>
+                  {car?.name}
+                </p>
+                <p className="info">
+                  <span>Model: </span>
+                  {car?.model}
+                </p>
+                <p className="info">
+                  <span>Price For Rent: </span>
+                  {car?.priceRent}
+                </p>
+                <p className="info">
+                  <span>Seats: </span>
+                  {car?.seats}
+                </p>
+                <p className="info">
+                  <span>Description: </span>
+                  {car?.description}
+                </p>
+                {car?.available && <p className="available">Available</p>}
+                {!car?.available && (
+                  <p
+                    className="available"
+                    style={car?.available ? {} : { backgroundColor: "red" }}
+                  >
+                    Not Available
+                  </p>
+                )}
+                <CardCarListItem id={car._id} setRerender={setRerender} />
               </div>
             </div>
           );
