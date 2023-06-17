@@ -1,6 +1,9 @@
 import { useParams } from "react-router-dom";
 import { api } from "../../lib/api/";
 import React from "react";
+import {useState} from 'react'
+import CostumModal from "../../components/CostumModal";
+import BookNowModalContent from "../../components/BookNowModalContent/BookNowModalContent";
 
 const Car = () => {
   const { carId } = useParams();
@@ -11,6 +14,7 @@ const Car = () => {
       setCar(result.data);
     }
   };
+  const [modalShow, setModalShow] = useState(false);
   React.useEffect(() => {
     getCar();
   }, []);
@@ -45,9 +49,18 @@ const Car = () => {
         <img src={car?.images} alt="" className="car-content-photo" />
       </div>
       <div className="car-buttons">
-        <button>Book Now</button>
+        <button onClick={()=>setModalShow(true)}>Book Now</button>
         <button>Buy Now</button>
       </div>
+      <CostumModal
+        modalBody={
+          <BookNowModalContent
+          setModalShow={setModalShow}
+        />
+        }
+        show={modalShow}
+        onHide={() => setModalShow(false)}
+      />
     </div>
   );
 };
